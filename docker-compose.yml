@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  rabbit-mq:
+    image: docker pull dvladnik/fluentd-ui
+    networks:
+      - traefik-net
+    deploy:
+      labels:
+        traefik.docker.network: "traefik-net"
+        traefik.enable: "true"
+        traefik.frontend.rule: "Host:fluent.j3dro.de,www.fluent.j3dro.de"
+        traefik.port: 15672
+
+networks:
+  traefik-net:
+    external: true
