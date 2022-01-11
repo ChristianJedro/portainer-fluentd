@@ -11,6 +11,8 @@ services:
         traefik.enable: "true"
         traefik.frontend.rule: "Host:fluent.j3dro.de,www.fluent.j3dro.de"
         traefik.port: 9292
+    ports:
+      - "127.0.0.1:9292:9292"
 
 networks:
   traefik-net:
