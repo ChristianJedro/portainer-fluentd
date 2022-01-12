@@ -15,7 +15,7 @@ services:
         traefik.port: 9292
     ports:
       - "127.0.0.1:24224:24224"
-    command: bash -c "fluentd-ui start & fluentd -c /root/.fluentd-ui/fluent.conf"
+#    command: bash -c "fluentd-ui start & fluentd -c /root/.fluentd-ui/fluent.conf"
 
 networks:
   traefik-net:
