@@ -15,7 +15,20 @@ services:
         traefik.port: 9292
     ports:
       - "127.0.0.1:24224:24224"
-#    command: bash -c "fluentd-ui start & fluentd -c /root/.fluentd-ui/fluent.conf"
+      
+  fluent-admin:
+    image: dvladnik/fluentd-ui
+    networks:
+      - traefik-net
+    volumes:
+      - fluentd-conf-admin:/root
+    deploy:
+      labels:
+        traefik.docker.network: "traefik-net"
+        traefik.enable: "true"
+        traefik.frontend.rule: "Host:fluent-admin.j3dro.de,www.fluent-admin.j3dro.de"
+        traefik.port: 9292
+
 
 networks:
   traefik-net:
@@ -23,3 +36,4 @@ networks:
 
 volumes:
   fluentd-conf:
+  fluentd-conf-admin:
