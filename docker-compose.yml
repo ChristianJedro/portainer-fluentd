@@ -6,7 +6,7 @@ services:
     networks:
       - traefik-net
     volumes:
-      - fluentd-conf:/fluentd/etc
+      - fluentd-conf:/root/.fluentd-ui
     deploy:
       labels:
         traefik.docker.network: "traefik-net"
