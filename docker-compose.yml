@@ -28,8 +28,6 @@ services:
         traefik.enable: "true"
         traefik.frontend.rule: "Host:fluent-admin.j3dro.de,www.fluent-admin.j3dro.de"
         traefik.port: 9292
-    links:
-      - "fluent-client"
 
 
 networks:
